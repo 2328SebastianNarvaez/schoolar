@@ -1,29 +1,33 @@
 <?php
-    //config conection
+    //Config connection
+    $host       = "aws-0-us-east-1.pooler.supabase.com";
+    $port       = "6543";
+    $dbname     = "postgres";
+    $user       = "postgres.rmudcnadrfnxfzxiibls";
+    $password   = "Safe1251";
+    
+    /*
     $host       = "localhost";
     $port       = "5432";
     $dbname     = "schoolar";
     $user       = "postgres";
-    $password   = "1251";
+    $password   = "unicesmag";
+    */
 
-    //create connection
-
+    //Create connection
     $conn = pg_connect("
-            host=$host
-            port=$port
-            dbname=$dbname
-            user=$user
-            password=$password
+        host=$host
+        port=$port
+        dbname=$dbname
+        user=$user
+        password=$password
+    ");
 
-    
-    "); 
-
-    if (!$conn){
-        die("connection error: ". pg_last_error());
-    }else {
-        echo "success connection";
+    if(!$conn){
+        die("Connection error: " . pg_last_error());
+    }else{
+        echo "Success connection";
     }
-    
-    pg_close(); 
 
+    //pg_close();
 ?>
